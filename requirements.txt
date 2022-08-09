@@ -1,0 +1,15 @@
+pypinyin
+Cython==0.29.21
+librosa==0.8.0
+matplotlib
+numpy
+phonemizer==2.2.1
+scipy
+Unidecode==1.1.1
+pyopenjtalk
+janome
+pyinstaller
+cloud-tpu-client
+torch
+torchvision
+tensorboard
