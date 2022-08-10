@@ -27,7 +27,7 @@ class MainForm(QMainWindow, Ui_rena_voice_generator):
             self.symbols = a['symbols']
             self.lineEdit_4.setText("".join(a['symbols']))
         else:
-            self.symbols = list("!\"&*,-.?ABCINU[]abcdefghijklmnoprstuwyz{}()~")
+            self.symbols = list(' !"&*,-.?ABCINU[]abcdefghijklmnoprstuwyz{}()~')
             self.model_dir = ""
             self.json_dir = ""
             self.out_dir = ""
@@ -77,42 +77,45 @@ class MainForm(QMainWindow, Ui_rena_voice_generator):
                        'length': self.length, 'symbols': self.symbols}, f, sort_keys=True, indent=4, separators=(',', ': '))
         self.textBrowser.setText("")
         if self.text == "":
-            self.textBrowser.append("未输入要转化的文本\n")
+            self.textBrowser.append("未输入要转化的文本")
             return
         if self.out_dir == "":
-            self.textBrowser.append("未选择输出文件夹\n")
+            self.textBrowser.append("未选择输出文件夹")
             return
         if self.json_dir == "":
-            self.textBrowser.append("未选择配置文件\n")
+            self.textBrowser.append("未选择配置文件")
             return
         if self.model_dir == "":
-            self.textBrowser.append("未选择模型\n")
+            self.textBrowser.append("未选择模型")
             return
+        self.textBrowser.append("正在初始化……")
         try:
-            self.textBrowser.append("正在初始化……\n")
             n, h = init(self.symbols, self.json_dir)
         except Exception as e:
-            self.textBrowser.append("初始化失败！\n")
-            self.textBrowser.append(e)
+            print(e)
+            self.textBrowser.append("初始化失败！")
+            self.textBrowser.append(str(e))
             return
-        self.textBrowser.setText("初始化已完成！\n")
+        self.textBrowser.setText("初始化已完成！")
         try:
-            self.textBrowser.append("正在加载模型……\n")
+            self.textBrowser.append("正在加载模型……")
             load_model(self.model_dir, n)
         except Exception as e1:
-            self.textBrowser.append("模型加载失败！\n")
-            self.textBrowser.append(e1)
+            print(e1)
+            self.textBrowser.append("模型加载失败！")
+            self.textBrowser.append(str(e1))
             return
-        self.textBrowser.append("模型加载成功！\n")
+        self.textBrowser.append("模型加载成功！")
         try:
             self.textBrowser.append("开始合成……")
             jtts(self.text, n, h, self.out_dir, self.length)
         except Exception as e2:
-            self.textBrowser.append("合成失败！\n")
-            self.textBrowser.append(e2)
+            print(e2)
+            self.textBrowser.append("合成失败！")
+            self.textBrowser.append(str(e2))
             return
         self.textBrowser.append("音频已保存至{}".format(self.out_dir + \
-                                                  '/' + self.text[:10] if len(self.text) > 10 else self.text))
+                                                  '/' + (self.text[:10] if len(self.text) > 10 else self.text)+'.wav'))
 
 
 if __name__ == '__main__':

@@ -15,6 +15,12 @@ class Ui_rena_voice_generator(object):
     def setupUi(self, rena_voice_generator):
         rena_voice_generator.setObjectName("rena_voice_generator")
         rena_voice_generator.resize(600, 635)
+        font = QtGui.QFont()
+        font.setFamily("黑体")
+        rena_voice_generator.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("C:/Users/angel/Desktop/20220727_234841.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        rena_voice_generator.setWindowIcon(icon)
         rena_voice_generator.setStyleSheet("QToolButton {\n"
 "      /* 文字颜色 */\n"
 "      color: #0099CC; \n"
@@ -32,6 +38,7 @@ class Ui_rena_voice_generator(object):
 "      display: inline-block;\n"
 "      font-size: 16px;\n"
 "      margin: 4px 2px;\n"
+"font-family: 黑体;\n"
 "      transition-duration: 0.4s;\n"
 "      cursor: pointer;\n"
 "      text-decoration: none;\n"
@@ -60,6 +67,7 @@ class Ui_rena_voice_generator(object):
 "      text-align: center;\n"
 "      display: inline-block;\n"
 "      font-size: 16px;\n"
+"font-family: 黑体;\n"
 "      margin: 4px 2px;\n"
 "      transition-duration: 0.4s;\n"
 "      cursor: pointer;\n"
@@ -88,6 +96,7 @@ class Ui_rena_voice_generator(object):
 "      margin: 4px 2px;\n"
 "      transition-duration: 0.4s;\n"
 "      cursor: pointer;\n"
+"font-family: 黑体;\n"
 "      text-decoration: none;\n"
 "background-color: white; \n"
 "      color: black; \n"
@@ -119,6 +128,7 @@ class Ui_rena_voice_generator(object):
 "      cursor: pointer;\n"
 "      text-decoration: none;\n"
 "background-color: white; \n"
+"font-family: 黑体;\n"
 "      color: black; \n"
 "      border: 2px solid #008CBA;\n"
 "}\n"
@@ -138,6 +148,7 @@ class Ui_rena_voice_generator(object):
 "      text-align: center;\n"
 "      display: inline-block;\n"
 "      font-size: 16px;\n"
+"    font-family: 黑体;\n"
 "      margin: 4px 2px;\n"
 "      transition-duration: 0.4s;\n"
 "      cursor: pointer;\n"
@@ -155,6 +166,7 @@ class Ui_rena_voice_generator(object):
         self.pushButton = QtWidgets.QPushButton(rena_voice_generator)
         self.pushButton.setGeometry(QtCore.QRect(470, 340, 111, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -175,6 +187,7 @@ class Ui_rena_voice_generator(object):
         self.btn = QtWidgets.QToolButton(rena_voice_generator)
         self.btn.setGeometry(QtCore.QRect(470, 10, 111, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -216,6 +229,7 @@ class Ui_rena_voice_generator(object):
         self.btn_2 = QtWidgets.QToolButton(rena_voice_generator)
         self.btn_2.setGeometry(QtCore.QRect(470, 130, 111, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -269,6 +283,7 @@ class Ui_rena_voice_generator(object):
         self.btn_3 = QtWidgets.QToolButton(rena_voice_generator)
         self.btn_3.setGeometry(QtCore.QRect(470, 70, 111, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -325,6 +340,7 @@ class Ui_rena_voice_generator(object):
         self.lineEdit = QtWidgets.QLineEdit(rena_voice_generator)
         self.lineEdit.setGeometry(QtCore.QRect(140, 10, 321, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -333,6 +349,7 @@ class Ui_rena_voice_generator(object):
         self.lineEdit_2 = QtWidgets.QLineEdit(rena_voice_generator)
         self.lineEdit_2.setGeometry(QtCore.QRect(140, 70, 321, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -341,6 +358,7 @@ class Ui_rena_voice_generator(object):
         self.lineEdit_3 = QtWidgets.QLineEdit(rena_voice_generator)
         self.lineEdit_3.setGeometry(QtCore.QRect(140, 130, 321, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -349,6 +367,7 @@ class Ui_rena_voice_generator(object):
         self.lineEdit_4 = QtWidgets.QLineEdit(rena_voice_generator)
         self.lineEdit_4.setGeometry(QtCore.QRect(140, 190, 321, 51))
         font = QtGui.QFont()
+        font.setFamily("黑体")
         font.setPointSize(-1)
         font.setUnderline(False)
         font.setStrikeOut(False)
@@ -382,7 +401,7 @@ class Ui_rena_voice_generator(object):
 
     def retranslateUi(self, rena_voice_generator):
         _translate = QtCore.QCoreApplication.translate
-        rena_voice_generator.setWindowTitle(_translate("rena_voice_generator", "VITS-TTS"))
+        rena_voice_generator.setWindowTitle(_translate("rena_voice_generator", "Rena-TTS"))
         self.label.setText(_translate("rena_voice_generator", "文本："))
         self.pushButton.setText(_translate("rena_voice_generator", "开始合成"))
         self.label_2.setText(_translate("rena_voice_generator", "输出目录："))
@@ -396,8 +415,8 @@ class Ui_rena_voice_generator(object):
         self.textBrowser.setHtml(_translate("rena_voice_generator", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'SimSun\'; font-size:16px; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16px;\">.</span></p></body></html>"))
+"</style></head><body style=\" font-family:\'黑体\'; font-size:16px; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:16px;\">.</span></p></body></html>"))
         self.label_5.setText(_translate("rena_voice_generator", "输出："))
         self.lineEdit_4.setText(_translate("rena_voice_generator", "!\"&*,-.?ABCINU[]abcdefghijklmnoprstuwyz{}()~"))
         self.label_6.setText(_translate("rena_voice_generator", "语速倍率"))

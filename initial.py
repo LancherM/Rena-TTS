@@ -60,4 +60,9 @@ def jtts(text, net_g, hps, dir, length=1):
         x_tst = stn_tst.unsqueeze(0)
         x_tst_lengths = torch.LongTensor([stn_tst.size(0)])
         audio = net_g.infer(x_tst, x_tst_lengths, noise_scale=.667, noise_scale_w=0.8, length_scale=length)[0][0,0].data.float().numpy()
-    sf.write(dir+'/'+text[:10] if len(text) > 10 else text, audio, hps.data.sampling_rate)
+    sf.write(dir+'/'+(text[:10] if len(text) > 10 else text)+'.wav', audio, hps.data.sampling_rate)
+
+if __name__ == '__main__':
+    n,h=init(list("!\"&*,-.?ABCINU[]abcdefghijklmnoprstuwyz{}()~"), "C:\\Users\\angel\\Downloads\\config (2).json")
+    load_model("C:\\Users\\angel\\Downloads\\G_73000.pth", n)
+    jtts("話を聞くことはできるからね。",n,h,"./")
