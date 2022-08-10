@@ -5,21 +5,28 @@ from vits import commons, utils
 numba_logger = logging.getLogger('numba')
 numba_logger.setLevel(logging.WARNING)
 
-import librosa
-import matplotlib.pyplot as plt
+def script_method(fn, _rcb=None):
+    return fn
 
-import os
-import json
-import math
+
+def script(obj, optimize=True, _frames_up=0, _rcb=None):
+    return obj
+
+
+import torch.jit
+script_method1 = torch.jit.script_method
+script1 = torch.jit.script
+torch.jit.script_method = script_method
+torch.jit.script = script
+
+
 import torch
 import soundfile as sf
 from torch import nn
 from torch.nn import functional as F
 from torch.utils.data import DataLoader
 
-import vits.commons
-import vits.utils
-from vits.data_utils import TextAudioLoader, TextAudioCollate, TextAudioSpeakerLoader, TextAudioSpeakerCollate
+
 from vits.models import SynthesizerTrn
 from vits.text.cleaners import japanese_phrase_cleaners, japanese_tokenization_cleaners
 from vits.text import cleaned_text_to_sequence
